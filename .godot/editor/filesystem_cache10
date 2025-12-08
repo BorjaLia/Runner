@@ -1,0 +1,13 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1765212624
+icon.svg::CompressedTexture2D::8082787416380175598::1765212489::1765212489::1::::<><><>0<>0<>ce8cf741b91f893fc295d2ddf0971699<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+TrackSegment.gd::GDScript::2562157544971700497::1765212489::0::1::::<>Node3D<><>0<>0<><>::
+::res://scenes/::1765212489
+main_game.tscn::PackedScene::1832111577182514471::1765212489::0::1::::<><><>0<>0<><>::uid://p7ltkjqv2ia6::::res://scripts/LevelGenerator.gd<>uid://cm0jg7fhcv3bn::::res://scenes/player.tscn<>uid://dcf6qq4idqdvc::::res://scenes/track_segment.tscn
+player.tscn::PackedScene::5667275791385217799::1765212489::0::1::::<><><>0<>0<><>::uid://2kpec8ykx11u::::res://scripts/playerController.gd
+test_level.tscn::PackedScene::8502391298613030760::1765212489::0::1::::<><><>0<>0<><>::uid://cm0jg7fhcv3bn::::res://scenes/player.tscn<>uid://dcf6qq4idqdvc::::res://scenes/track_segment.tscn
+track_segment.tscn::PackedScene::7311873312144961352::1765212489::0::1::::<><><>0<>0<><>::uid://bcremiwlj7skf::::res://TrackSegment.gd
+::res://scripts/::1765212489
+Global.gd::GDScript::5417169260971152034::1765212489::0::1::::<>Node<><>0<>0<><>::
+LevelGenerator.gd::GDScript::1119595099597864231::1765212489::0::1::::<>Node3D<><>0<>0<><>::
+playerController.gd::GDScript::1916660610964583176::1765212489::0::1::::<>CharacterBody3D<><>0<>0<><>::

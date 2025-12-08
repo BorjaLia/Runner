@@ -1,0 +1,4 @@
+res://scenes/main_game.tscn
+res://scripts/LevelGenerator.gd
+res://scripts/playerController.gd
+res://TrackSegment.gd

@@ -1,0 +1,9 @@
+WorldEnvironment
+Marker3D
+Node3D
+CollisionShape3D
+StaticBody3D
+VisibleOnScreenNotifier3D
+MeshInstance3D
+Camera3D
+CharacterBody3D
