@@ -6,6 +6,10 @@ var segment_length: float = 20.0
 var amount_to_spawn: int = 15
 var spawn_z: float = 0.0
 
+var segments_spawned: int = 0
+var speed_increase_interval: int = 10 
+var max_speed: float = 25.0
+
 @onready var player: CharacterBody3D = $Player
 
 func _ready() -> void:
@@ -30,3 +34,9 @@ func spawn_segment(is_safe_zone: bool) -> void:
 		segment.spawn_items()
 	
 	spawn_z -= segment_length
+	
+	segments_spawned += 1
+	if segments_spawned % speed_increase_interval == 0:
+		if Global.speed < max_speed:
+			Global.increase_speed()
+			print("Speed Up! New Speed: ", Global.speed)

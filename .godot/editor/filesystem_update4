@@ -1,3 +1,5 @@
 res://scripts/LevelGenerator.gd
 res://TrackSegment.gd
 res://scenes/main_game.tscn
+res://scripts/playerController.gd
+res://scenes/obstacle_train.tscn

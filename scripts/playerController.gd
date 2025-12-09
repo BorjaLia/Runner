@@ -24,7 +24,8 @@ func _physics_process(delta: float) -> void:
 	velocity.z = -Global.speed
 	
 	velocity.x = 0 
-	position.x = move_toward(position.x, target_x, lane_speed * delta)
+	var dynamic_lane_speed = lane_speed * (Global.speed / Global.initial_speed)
+	position.x = move_toward(position.x, target_x, dynamic_lane_speed * delta)
 	
 	move_and_slide()
 
@@ -38,8 +39,14 @@ func _physics_process(delta: float) -> void:
 		
 		if collider.is_in_group("obstacle"):
 			var normal = collision.get_normal()
+			
 			if normal.z > 0.5:
 				game_over()
+				
+			elif abs(normal.x) > 0.5:
+				var bounce_dir = sign(normal.x)
+				
+				change_lane(int(bounce_dir))
 
 func _handle_input() -> void:
 	if Input.is_action_just_pressed("move_left"):
@@ -65,12 +72,10 @@ func change_lane(direction: int) -> void:
 
 func start_roll() -> void:
 	if is_rolling: return
-	
 	is_rolling = true
 	
 	col_stand.disabled = true
 	col_roll.disabled = false
-	
 	visuals.scale.y = 0.5
 	
 	await get_tree().create_timer(1.0).timeout
@@ -82,7 +87,6 @@ func stop_roll() -> void:
 	is_rolling = false
 	col_stand.disabled = false
 	col_roll.disabled = true
-	
 	visuals.scale.y = 1.0
 
 func game_over() -> void:
