@@ -5,3 +5,9 @@ res://scenes/track_segment.tscn
 res://scenes/player.tscn
 res://scenes/main_game.tscn
 res://scripts/Global.gd
+res://scenes/obstacle_barrier.tscn
+res://scenes/obstacle_train.tscn
+res://scripts/playerController.gd
+res://scenes/hud.tscn
+res://scenes/hud.gd
+res://scripts/hud.gd

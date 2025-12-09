@@ -6,7 +6,7 @@ size = Vector3(2, 1, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kbivc"]
 size = Vector3(2, 1, 0.5)
 
-[node name="ObstacleBarrier" type="StaticBody3D"]
+[node name="ObstacleBarrier" type="StaticBody3D" groups=["obstacle"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

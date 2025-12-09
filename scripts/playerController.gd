@@ -6,6 +6,9 @@ extends CharacterBody3D
 
 var current_lane: int = 0
 var target_x: float = 0.0
+var is_dead: bool = false
+
+var score_accumulator: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -15,10 +18,24 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.z = -Global.speed
 	
-	velocity.x = 0
+	velocity.x = 0 
 	position.x = move_toward(position.x, target_x, lane_speed * delta)
 	
 	move_and_slide()
+
+	if not is_dead:
+		score_accumulator += Global.speed * delta
+		Global.score = int(score_accumulator)
+
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider.is_in_group("obstacle"):
+			var normal = collision.get_normal()
+			
+			if normal.z > 0.5:
+				game_over()
 
 func _handle_input() -> void:
 	if Input.is_action_just_pressed("move_left"):
@@ -29,12 +46,15 @@ func _handle_input() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 
-	if Input.is_action_just_pressed("roll") and is_on_floor():
-		print("Rolling!")
-
 func change_lane(direction: int) -> void:
 	current_lane += direction
-	
 	current_lane = clamp(current_lane, -1, 1)
-	
 	target_x = current_lane * Global.LANE_WIDTH
+
+func game_over() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	print("CRASH! Distance: ", Global.score, " Coins: ", Global.coins)
+	Global.reset_game()
+	get_tree().reload_current_scene()

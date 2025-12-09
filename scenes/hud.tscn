@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcycrwy12frmi"]
+
+[ext_resource type="Script" uid="uid://ckj0dspl4jo2q" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_toqtt"]
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ahhtf")
+
+[node name="DistanceLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = 229.0
+offset_top = -2.0
+offset_right = -274.0
+offset_bottom = 65.0
+text = "0m"
+label_settings = SubResource("LabelSettings_toqtt")
+horizontal_alignment = 1
+
+[node name="CoinLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+offset_left = 218.0
+offset_top = 2.0
+offset_right = -171.0
+offset_bottom = 69.0
+grow_horizontal = 0
+text = "COINS:0"
+label_settings = SubResource("LabelSettings_toqtt")
+horizontal_alignment = 1

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://1dqu0fq0y7tr"]
+[gd_scene load_steps=8 format=3 uid="uid://1dqu0fq0y7tr"]
 
 [ext_resource type="Script" uid="uid://p7ltkjqv2ia6" path="res://scripts/LevelGenerator.gd" id="1_d2op2"]
 [ext_resource type="PackedScene" uid="uid://cm0jg7fhcv3bn" path="res://scenes/player.tscn" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://dcf6qq4idqdvc" path="res://scenes/track_segment.tscn" id="2_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://bcycrwy12frmi" path="res://scenes/hud.tscn" id="4_0rdsr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2op2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -28,3 +29,5 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_s3esy")]
+
+[node name="HUD" parent="." instance=ExtResource("4_0rdsr")]
