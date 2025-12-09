@@ -10,6 +10,7 @@ size = Vector3(1, 2, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionStand" type="CollisionShape3D" parent="."]

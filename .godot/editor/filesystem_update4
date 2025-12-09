@@ -3,3 +3,7 @@ res://TrackSegment.gd
 res://scenes/main_game.tscn
 res://scripts/playerController.gd
 res://scenes/obstacle_train.tscn
+res://main_menu.gd
+res://pause_menu.gd
+res://scenes/pause_menu.tscn
+res://scenes/player.tscn

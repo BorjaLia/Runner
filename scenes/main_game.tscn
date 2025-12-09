@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://1dqu0fq0y7tr"]
+[gd_scene load_steps=9 format=3 uid="uid://1dqu0fq0y7tr"]
 
 [ext_resource type="Script" uid="uid://p7ltkjqv2ia6" path="res://scripts/LevelGenerator.gd" id="1_d2op2"]
 [ext_resource type="PackedScene" uid="uid://cm0jg7fhcv3bn" path="res://scenes/player.tscn" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://dcf6qq4idqdvc" path="res://scenes/track_segment.tscn" id="2_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://c8adc4vjcpqsb" path="res://scenes/pause_menu.tscn" id="3_ipu61"]
 [ext_resource type="PackedScene" uid="uid://bcycrwy12frmi" path="res://scenes/hud.tscn" id="4_0rdsr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2op2"]
@@ -20,6 +21,8 @@ tonemap_mode = 2
 [node name="MainGame" type="Node3D"]
 script = ExtResource("1_d2op2")
 track_scene = ExtResource("2_0rdsr")
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_ipu61")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ipu61")
