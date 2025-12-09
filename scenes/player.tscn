@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://2kpec8ykx11u" path="res://scripts/playerController.gd" id="1_3vyb7"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
+size = Vector3(1, 2, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
-height = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
 
@@ -13,11 +13,11 @@ height = 1.0
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionStand" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_u8vuu")
+shape = SubResource("BoxShape3D_3vyb7")
 
 [node name="CollisionRoll" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("CapsuleShape3D_3vyb7")
+shape = SubResource("BoxShape3D_g2els")
 disabled = true
 
 [node name="Visuals" type="Node3D" parent="."]

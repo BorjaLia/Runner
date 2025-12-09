@@ -11,3 +11,4 @@ res://scripts/playerController.gd
 res://scenes/hud.tscn
 res://scenes/hud.gd
 res://scripts/hud.gd
+res://scenes/obstacle_high.tscn

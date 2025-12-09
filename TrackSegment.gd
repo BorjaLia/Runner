@@ -5,6 +5,7 @@ const LENGTH: float = 20.0
 @export var barrier_scene: PackedScene
 @export var train_scene: PackedScene
 @export var coin_scene: PackedScene
+@export var high_barrier_scene: PackedScene
 
 @export var obstacle_chance: float = 0.4
 @export var coin_chance: float = 0.5
@@ -31,10 +32,14 @@ func spawn_items() -> void:
 
 func spawn_obstacle(parent_point: Node3D) -> void:
 	var obstacle
-	if randf() > 0.5:
+	var roll = randf()
+	
+	if roll < 0.33:
 		obstacle = barrier_scene.instantiate()
-	else:
+	elif roll < 0.66:
 		obstacle = train_scene.instantiate()
+	else:
+		obstacle = high_barrier_scene.instantiate()
 	
 	parent_point.add_child(obstacle)
 
