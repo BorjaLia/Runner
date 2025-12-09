@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcf6qq4idqdvc"]
+[gd_scene load_steps=7 format=3 uid="uid://dcf6qq4idqdvc"]
 
 [ext_resource type="Script" uid="uid://bcremiwlj7skf" path="res://TrackSegment.gd" id="1_s0b40"]
+[ext_resource type="PackedScene" uid="uid://cw8du612igvjn" path="res://scenes/obstacle_barrier.tscn" id="2_51yx5"]
+[ext_resource type="PackedScene" uid="uid://bwomo3dd52acq" path="res://scenes/obstacle_train.tscn" id="3_l2rfu"]
+[ext_resource type="PackedScene" uid="uid://cr0oko0j4cbxu" path="res://scenes/coin.tscn" id="4_unroe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f2wuh"]
 size = Vector3(12, 1, 20)
@@ -10,6 +13,9 @@ size = Vector3(12, 1, 20)
 
 [node name="TrackSegment" type="Node3D"]
 script = ExtResource("1_s0b40")
+barrier_scene = ExtResource("2_51yx5")
+train_scene = ExtResource("3_l2rfu")
+coin_scene = ExtResource("4_unroe")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

@@ -1,4 +1,7 @@
-res://scenes/main_game.tscn
-res://scripts/LevelGenerator.gd
-res://scripts/playerController.gd
+res://coin.gd
+res://scenes/coin.tscn
 res://TrackSegment.gd
+res://scenes/track_segment.tscn
+res://scenes/player.tscn
+res://scenes/main_game.tscn
+res://scripts/Global.gd
