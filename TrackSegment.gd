@@ -7,8 +7,8 @@ const LENGTH: float = 20.0
 @export var coin_scene: PackedScene
 @export var high_barrier_scene: PackedScene
 
-@export var obstacle_chance: float = 0.4
-@export var coin_chance: float = 0.5
+@export var obstacle_chance: float = 0.65 
+@export var coin_chance: float = 0.7   
 
 @onready var spawn_points = [
 	$SpawnContainer/Left,
@@ -18,28 +18,43 @@ const LENGTH: float = 20.0
 
 func _ready() -> void:
 	$VisibleOnScreenNotifier3D.screen_exited.connect(_on_screen_exited)
-	spawn_items()
 
 func _on_screen_exited() -> void:
 	queue_free()
 
 func spawn_items() -> void:
-	for point in spawn_points:
-		if randf() < obstacle_chance:
-			spawn_obstacle(point)
-		elif randf() < coin_chance:
-			spawn_coin(point)
-
-func spawn_obstacle(parent_point: Node3D) -> void:
-	var obstacle
-	var roll = randf()
+	var lanes = spawn_points.duplicate()
+	lanes.shuffle()
 	
-	if roll < 0.33:
-		obstacle = barrier_scene.instantiate()
-	elif roll < 0.66:
-		obstacle = train_scene.instantiate()
+	var escape_lane = lanes.pop_front()
+	
+	if randf() < obstacle_chance:
+		spawn_obstacle(escape_lane, true)
+	elif randf() < coin_chance:
+		spawn_coin(escape_lane)
+	
+	for lane in lanes:
+		if randf() < obstacle_chance:
+			spawn_obstacle(lane, false)
+		elif randf() < coin_chance:
+			spawn_coin(lane)
+
+func spawn_obstacle(parent_point: Node3D, forbid_trains: bool = false) -> void:
+	var obstacle
+	
+	if forbid_trains:
+		if randf() < 0.5:
+			obstacle = barrier_scene.instantiate()
+		else:
+			obstacle = high_barrier_scene.instantiate()
 	else:
-		obstacle = high_barrier_scene.instantiate()
+		var roll = randf()
+		if roll < 0.2:
+			obstacle = barrier_scene.instantiate()
+		elif roll < 0.8:
+			obstacle = train_scene.instantiate()
+		else:
+			obstacle = high_barrier_scene.instantiate()
 	
 	parent_point.add_child(obstacle)
 

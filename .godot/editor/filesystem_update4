@@ -1,14 +1,3 @@
-res://coin.gd
-res://scenes/coin.tscn
+res://scripts/LevelGenerator.gd
 res://TrackSegment.gd
-res://scenes/track_segment.tscn
-res://scenes/player.tscn
 res://scenes/main_game.tscn
-res://scripts/Global.gd
-res://scenes/obstacle_barrier.tscn
-res://scenes/obstacle_train.tscn
-res://scripts/playerController.gd
-res://scenes/hud.tscn
-res://scenes/hud.gd
-res://scripts/hud.gd
-res://scenes/obstacle_high.tscn
