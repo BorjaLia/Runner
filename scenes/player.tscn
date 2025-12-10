@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm0jg7fhcv3bn"]
+[gd_scene load_steps=7 format=3 uid="uid://cm0jg7fhcv3bn"]
 
 [ext_resource type="Script" uid="uid://2kpec8ykx11u" path="res://scripts/playerController.gd" id="1_3vyb7"]
+[ext_resource type="Shader" uid="uid://c7ivu4xxheqoh" path="res://shaders/CurvedWorld.gdshader" id="2_g2els"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3vyb7"]
 size = Vector3(1, 2, 1)
@@ -8,6 +9,11 @@ size = Vector3(1, 2, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhqgy"]
+render_priority = 0
+shader = ExtResource("2_g2els")
+shader_parameter/albedo_color = Color(0.25062445, 0.56198233, 0.23829359, 1)
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -24,7 +30,9 @@ disabled = true
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_3vyb7")
+surface_material_override/0 = SubResource("ShaderMaterial_qhqgy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 4)

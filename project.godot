@@ -56,3 +56,10 @@ roll={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[shader_globals]
+
+world_curve={
+"type": "float",
+"value": 0.002
+}

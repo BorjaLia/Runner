@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal player_crashed 
+
 @export var jump_force: float = 10.0
 @export var gravity: float = 20.0
 @export var lane_speed: float = 10.0
@@ -21,7 +23,10 @@ func _physics_process(delta: float) -> void:
 	
 	_handle_input()
 	
-	velocity.z = -Global.speed
+	if not is_dead:
+		velocity.z = -Global.speed
+	else:
+		velocity.z = 0
 	
 	velocity.x = 0 
 	var dynamic_lane_speed = lane_speed * (Global.speed / Global.initial_speed)
@@ -40,32 +45,30 @@ func _physics_process(delta: float) -> void:
 		if collider.is_in_group("obstacle"):
 			var normal = collision.get_normal()
 			
-			if normal.z > 0.5:
-				game_over()
-				
+			if normal.z > 0.8:
+				game_over(collider.name)
 			elif abs(normal.x) > 0.5:
 				var bounce_dir = sign(normal.x)
-				
 				change_lane(int(bounce_dir))
 
 func _handle_input() -> void:
+	if is_dead: return
+	
 	if Input.is_action_just_pressed("move_left"):
 		change_lane(-1)
 	elif Input.is_action_just_pressed("move_right"):
 		change_lane(1)
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		if is_rolling:
-			stop_roll()
+		if is_rolling: stop_roll() 
 		velocity.y = jump_force
 
 	if Input.is_action_just_pressed("roll"):
-		if is_on_floor():
-			start_roll()
-		else:
-			velocity.y = -jump_force * 1.5
+		if is_on_floor(): start_roll()
+		else: velocity.y = -jump_force * 1.5
 
 func change_lane(direction: int) -> void:
+	if is_dead: return
 	current_lane += direction
 	current_lane = clamp(current_lane, -1, 1)
 	target_x = current_lane * Global.LANE_WIDTH
@@ -73,15 +76,11 @@ func change_lane(direction: int) -> void:
 func start_roll() -> void:
 	if is_rolling: return
 	is_rolling = true
-	
 	col_stand.disabled = true
 	col_roll.disabled = false
 	visuals.scale.y = 0.5
-	
 	await get_tree().create_timer(1.0).timeout
-	
-	if not is_dead:
-		stop_roll()
+	if not is_dead: stop_roll()
 
 func stop_roll() -> void:
 	is_rolling = false
@@ -89,9 +88,10 @@ func stop_roll() -> void:
 	col_roll.disabled = true
 	visuals.scale.y = 1.0
 
-func game_over() -> void:
+func game_over(killer_name: String = "Unknown") -> void:
 	if is_dead: return
 	is_dead = true
-	print("CRASH! Distance: ", Global.score, " Coins: ", Global.coins)
-	Global.reset_game()
-	get_tree().reload_current_scene()
+	
+	print("CRASH caused by: ", killer_name)
+	
+	player_crashed.emit()

@@ -1,13 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcf6qq4idqdvc"]
+[gd_scene load_steps=10 format=3 uid="uid://dcf6qq4idqdvc"]
 
-[ext_resource type="Script" uid="uid://bcremiwlj7skf" path="res://TrackSegment.gd" id="1_s0b40"]
+[ext_resource type="Script" uid="uid://bcremiwlj7skf" path="res://scripts/TrackSegment.gd" id="1_s0b40"]
 [ext_resource type="PackedScene" uid="uid://cw8du612igvjn" path="res://scenes/obstacle_barrier.tscn" id="2_51yx5"]
 [ext_resource type="PackedScene" uid="uid://bwomo3dd52acq" path="res://scenes/obstacle_train.tscn" id="3_l2rfu"]
 [ext_resource type="PackedScene" uid="uid://cr0oko0j4cbxu" path="res://scenes/coin.tscn" id="4_unroe"]
 [ext_resource type="PackedScene" uid="uid://jrbkj2d0iaqt" path="res://scenes/obstacle_high.tscn" id="5_l2rfu"]
+[ext_resource type="Shader" uid="uid://c7ivu4xxheqoh" path="res://shaders/CurvedWorld.gdshader" id="6_unroe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f2wuh"]
 size = Vector3(12, 1, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wax37"]
+render_priority = 0
+shader = ExtResource("6_unroe")
+shader_parameter/curve_strength = 0.0010000000475
+shader_parameter/albedo_color = Color(0.44291076, 0.44291076, 0.44291073, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krt3o"]
 size = Vector3(12, 1, 20)
@@ -22,6 +29,7 @@ high_barrier_scene = ExtResource("5_l2rfu")
 [node name="FloorMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_f2wuh")
+surface_material_override/0 = SubResource("ShaderMaterial_wax37")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="FloorMesh"]
 

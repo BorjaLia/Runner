@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://jrbkj2d0iaqt"]
+[gd_scene load_steps=5 format=3 uid="uid://jrbkj2d0iaqt"]
+
+[ext_resource type="Shader" uid="uid://c7ivu4xxheqoh" path="res://shaders/CurvedWorld.gdshader" id="1_wm2wg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ajuda"]
 size = Vector3(2, 2, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jg4bj"]
+render_priority = 0
+shader = ExtResource("1_wm2wg")
+shader_parameter/albedo_color = Color(0.5980694, 0.23262134, 0.75504017, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wm2wg"]
 size = Vector3(2, 2, 0.5)
@@ -10,7 +17,9 @@ size = Vector3(2, 2, 0.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cast_shadow = 0
 mesh = SubResource("BoxMesh_ajuda")
+surface_material_override/0 = SubResource("ShaderMaterial_jg4bj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
