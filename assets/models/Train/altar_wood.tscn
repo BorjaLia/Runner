@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo8s7jfr22s0f"]
+
+[ext_resource type="PackedScene" uid="uid://nspclosyt3es" path="res://assets/models/Train/altar-wood.fbx" id="1_lq264"]
+
+[node name="altar-wood" instance=ExtResource("1_lq264")]
+transform = Transform3D(-2.6226832e-07, 0, 6, 0, 6, 0, -6, 0, -2.6226832e-07, 0, -1, 0)

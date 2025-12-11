@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0fa8oe4wt1vs"]
+
+[ext_resource type="PackedScene" uid="uid://2nxypvwoxsdb" path="res://assets/models/Character/characterMedium.fbx" id="1_wqj5l"]
+[ext_resource type="Shader" uid="uid://c7ivu4xxheqoh" path="res://shaders/CurvedWorld.gdshader" id="2_7i6rh"]
+[ext_resource type="Texture2D" uid="uid://32f4rd3ohhux" path="res://assets/textures/Character/zombieA.png" id="3_t6v1k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgkhp"]
+render_priority = 0
+shader = ExtResource("2_7i6rh")
+shader_parameter/albedo_texture = ExtResource("3_t6v1k")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+
+[node name="characterMedium" instance=ExtResource("1_wqj5l")]
+
+[node name="characterMedium" parent="Root/Skeleton3D" index="0"]
+cast_shadow = 0
+surface_material_override/0 = SubResource("ShaderMaterial_cgkhp")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt2spj6wbcxpl"]
+
+[ext_resource type="PackedScene" uid="uid://c5adco3ojrnxr" path="res://assets/models/Barrier/gravestone-broken.fbx" id="1_vk2i2"]
+
+[node name="gravestone-broken" instance=ExtResource("1_vk2i2")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)

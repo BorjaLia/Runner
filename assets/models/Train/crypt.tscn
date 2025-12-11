@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://drtj1m6gru4mr"]
+
+[ext_resource type="PackedScene" uid="uid://dklv8wcp8ad8t" path="res://assets/models/Train/crypt.fbx" id="1_6jjeg"]
+
+[node name="crypt" instance=ExtResource("1_6jjeg")]

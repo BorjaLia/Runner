@@ -1,3 +1,4 @@
+AnimationPlayer
 Button
 Label
 VBoxContainer
@@ -11,4 +12,3 @@ StaticBody3D
 Area3D
 WorldEnvironment
 Marker3D
-Node3D

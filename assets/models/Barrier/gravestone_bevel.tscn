@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2ywrur442c37"]
+
+[ext_resource type="PackedScene" uid="uid://bfctv2qtg7fss" path="res://assets/models/Barrier/gravestone-bevel.fbx" id="1_nk0rs"]
+
+[node name="gravestone-bevel" instance=ExtResource("1_nk0rs")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)

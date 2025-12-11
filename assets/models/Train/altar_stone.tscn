@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7851er5e5eix"]
+
+[ext_resource type="PackedScene" uid="uid://7cbbaxibfccr" path="res://assets/models/Train/altar-stone.fbx" id="1_qdhxj"]
+
+[node name="altar-stone" instance=ExtResource("1_qdhxj")]
+transform = Transform3D(-2.6226832e-07, 0, 6, 0, 6, 0, -6, 0, -2.6226832e-07, 0, -1, 0)

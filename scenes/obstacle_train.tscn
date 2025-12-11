@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwomo3dd52acq"]
+[gd_scene load_steps=9 format=3 uid="uid://bwomo3dd52acq"]
 
 [ext_resource type="Shader" uid="uid://c7ivu4xxheqoh" path="res://shaders/CurvedWorld.gdshader" id="1_d3fbx"]
+[ext_resource type="Script" uid="uid://cxd50fgdbutmt" path="res://scripts/MeshRandomizer.gd" id="1_hxjwq"]
+[ext_resource type="PackedScene" uid="uid://b7851er5e5eix" path="res://assets/models/Train/altar_stone.tscn" id="2_tnk1g"]
+[ext_resource type="PackedScene" uid="uid://bo8s7jfr22s0f" path="res://assets/models/Train/altar_wood.tscn" id="3_hjwla"]
+[ext_resource type="Texture2D" uid="uid://dfths6e8at68w" path="res://assets/textures/colormap.png" id="4_781mx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_h4ej4"]
 size = Vector3(2.5, 4, 10)
@@ -14,6 +18,9 @@ shader_parameter/albedo_color = Color(0.28148082, 0.3460244, 0.7429301, 1)
 size = Vector3(2.5, 5, 10)
 
 [node name="ObstacleTrain" type="StaticBody3D" groups=["obstacle"]]
+script = ExtResource("1_hxjwq")
+model_scenes = Array[PackedScene]([ExtResource("2_tnk1g"), ExtResource("3_hjwla")])
+shared_texture = ExtResource("4_781mx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

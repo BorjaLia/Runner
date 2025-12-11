@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crq43puksk5xl"]
+
+[ext_resource type="PackedScene" uid="uid://bs0yniopjb1uo" path="res://assets/models/Barrier/gravestone-roof.fbx" id="1_ktqau"]
+
+[node name="gravestone-roof" instance=ExtResource("1_ktqau")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)

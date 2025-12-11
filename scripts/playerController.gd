@@ -78,7 +78,8 @@ func start_roll() -> void:
 	is_rolling = true
 	col_stand.disabled = true
 	col_roll.disabled = false
-	visuals.scale.y = 0.5
+	visuals.position.z = -1
+	visuals.rotation.x = deg_to_rad(90)
 	await get_tree().create_timer(1.0).timeout
 	if not is_dead: stop_roll()
 
@@ -86,7 +87,8 @@ func stop_roll() -> void:
 	is_rolling = false
 	col_stand.disabled = false
 	col_roll.disabled = true
-	visuals.scale.y = 1.0
+	visuals.position.z = 0
+	visuals.rotation.x = deg_to_rad(0)
 
 func game_over(killer_name: String = "Unknown") -> void:
 	if is_dead: return

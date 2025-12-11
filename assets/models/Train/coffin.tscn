@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5thdf2e83rux"]
+
+[ext_resource type="PackedScene" uid="uid://1kvv37d5ktvh" path="res://assets/models/Train/coffin.fbx" id="1_24ldc"]
+
+[node name="coffin" instance=ExtResource("1_24ldc")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

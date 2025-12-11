@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5pjbwjinma2b"]
+
+[ext_resource type="PackedScene" uid="uid://bjfs3j00d3mck" path="res://assets/models/Barrier/gravestone-cross-large.fbx" id="1_qhc1t"]
+
+[node name="gravestone-cross-large" instance=ExtResource("1_qhc1t")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

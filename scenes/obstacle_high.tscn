@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://jrbkj2d0iaqt"]
+[gd_scene load_steps=7 format=3 uid="uid://jrbkj2d0iaqt"]
 
+[ext_resource type="Script" uid="uid://cxd50fgdbutmt" path="res://scripts/MeshRandomizer.gd" id="1_lagss"]
 [ext_resource type="Shader" uid="uid://c7ivu4xxheqoh" path="res://shaders/CurvedWorld.gdshader" id="1_wm2wg"]
+[ext_resource type="Texture2D" uid="uid://dfths6e8at68w" path="res://assets/textures/colormap.png" id="2_8qp6i"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ajuda"]
 size = Vector3(2, 2, 0.5)
@@ -14,6 +16,8 @@ shader_parameter/albedo_color = Color(0.5980694, 0.23262134, 0.75504017, 1)
 size = Vector3(2, 2, 0.5)
 
 [node name="ObstacleHigh" type="StaticBody3D" groups=["obstacle"]]
+script = ExtResource("1_lagss")
+shared_texture = ExtResource("2_8qp6i")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

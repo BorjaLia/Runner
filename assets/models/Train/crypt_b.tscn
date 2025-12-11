@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://doao8gn6nyhj2"]
+
+[ext_resource type="PackedScene" uid="uid://dwblwoxaasbss" path="res://assets/models/Train/crypt-b.fbx" id="1_xcnjw"]
+
+[node name="crypt-b" instance=ExtResource("1_xcnjw")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
