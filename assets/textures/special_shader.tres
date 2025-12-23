@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ccjmyqtar2270"]
+
+[ext_resource type="Shader" uid="uid://c7ivu4xxheqoh" path="res://shaders/CurvedWorld.gdshader" id="1_frnmb"]
+[ext_resource type="Texture2D" uid="uid://dfths6e8at68w" path="res://assets/textures/colormap.png" id="2_005qv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_frnmb")
+shader_parameter/albedo_texture = ExtResource("2_005qv")
+shader_parameter/albedo_color = Color(0.31040543, 0.31040543, 0.31040543, 1)

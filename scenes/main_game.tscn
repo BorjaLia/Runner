@@ -7,16 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://bcycrwy12frmi" path="res://scenes/hud.tscn" id="4_0rdsr"]
 [ext_resource type="PackedScene" uid="uid://bl1av3bt4emxs" path="res://scenes/game_over_menu.tscn" id="6_ygxny"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2op2"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ygxny"]
+ground_bottom_color = Color(0.38431373, 0.45490196, 0.54901963, 1)
 
-[sub_resource type="Sky" id="Sky_0rdsr"]
-sky_material = SubResource("ProceduralSkyMaterial_d2op2")
+[sub_resource type="Sky" id="Sky_wi4c7"]
+sky_material = SubResource("ProceduralSkyMaterial_ygxny")
 
 [sub_resource type="Environment" id="Environment_ipu61"]
 background_mode = 2
-sky = SubResource("Sky_0rdsr")
+sky = SubResource("Sky_wi4c7")
 tonemap_mode = 2
 
 [node name="MainGame" type="Node3D"]
@@ -30,6 +29,7 @@ environment = SubResource("Environment_ipu61")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0, 0, 0, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_s3esy")]

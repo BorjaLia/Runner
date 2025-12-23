@@ -6,9 +6,12 @@ signal player_crashed
 @export var gravity: float = 20.0
 @export var lane_speed: float = 10.0
 
+@export var animation_player: AnimationPlayer
+
 var current_lane: int = 0
 var target_x: float = 0.0
 var is_dead: bool = false
+
 var is_rolling: bool = false
 
 var score_accumulator: float = 0.0
@@ -20,7 +23,7 @@ var score_accumulator: float = 0.0
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	
+		
 	_handle_input()
 	
 	if not is_dead:
@@ -33,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	position.x = move_toward(position.x, target_x, dynamic_lane_speed * delta)
 	
 	move_and_slide()
+	
+	_update_animations()
 
 	if not is_dead:
 		score_accumulator += Global.speed * delta
@@ -50,7 +55,7 @@ func _physics_process(delta: float) -> void:
 			elif abs(normal.x) > 0.5:
 				var bounce_dir = sign(normal.x)
 				change_lane(int(bounce_dir))
-
+	
 func _handle_input() -> void:
 	if is_dead: return
 	
@@ -62,10 +67,40 @@ func _handle_input() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		if is_rolling: stop_roll() 
 		velocity.y = jump_force
+		if animation_player:
+			animation_player.play("Jump")
 
 	if Input.is_action_just_pressed("roll"):
 		if is_on_floor(): start_roll()
 		else: velocity.y = -jump_force * 1.5
+
+func _update_animations() -> void:
+	if not animation_player:
+		return
+
+	if is_dead:
+		_play_safe("Death") 
+		return
+
+	if not is_on_floor():
+		if animation_player.current_animation == "Jump" and animation_player.is_playing():
+			return
+		
+		_play_safe("Jump_Idle")
+		return
+	
+	if is_rolling:
+		_play_safe("Duck") 
+		return
+
+	_play_safe("Run")
+
+func _play_safe(anim_name: String) -> void:
+	if animation_player.has_animation(anim_name):
+		if animation_player.current_animation != anim_name:
+			animation_player.play(anim_name)
+	else:
+		pass
 
 func change_lane(direction: int) -> void:
 	if is_dead: return
@@ -78,8 +113,7 @@ func start_roll() -> void:
 	is_rolling = true
 	col_stand.disabled = true
 	col_roll.disabled = false
-	visuals.position.z = -1
-	visuals.rotation.x = deg_to_rad(90)
+	visuals.scale.y = 0.35
 	await get_tree().create_timer(1.0).timeout
 	if not is_dead: stop_roll()
 
@@ -87,8 +121,7 @@ func stop_roll() -> void:
 	is_rolling = false
 	col_stand.disabled = false
 	col_roll.disabled = true
-	visuals.position.z = 0
-	visuals.rotation.x = deg_to_rad(0)
+	visuals.scale.y = 0.75
 
 func game_over(killer_name: String = "Unknown") -> void:
 	if is_dead: return
