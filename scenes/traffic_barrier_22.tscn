@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jjo0ipcmswqi"]
+
+[ext_resource type="PackedScene" uid="uid://dl2myx4fsp2rw" path="res://assets/models/TrafficBarrier_2.gltf" id="1_s7org"]
+
+[node name="TrafficBarrier_22" instance=ExtResource("1_s7org")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.5, 0)

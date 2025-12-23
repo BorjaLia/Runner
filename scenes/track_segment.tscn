@@ -29,7 +29,7 @@ mesh = SubResource("BoxMesh_f2wuh")
 surface_material_override/0 = ExtResource("7_wax37")
 
 [node name="tile-tree-quad2" parent="FloorMesh" instance=ExtResource("7_mafoj")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 15, 0.5, -5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 15, 0, -5)
 
 [node name="tile-straight2" parent="FloorMesh" instance=ExtResource("6_wax37")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1.5, 0)
@@ -40,25 +40,25 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -1.5, 0)
 shape = SubResource("BoxShape3D_krt3o")
 
 [node name="tile-tree-double2" parent="FloorMesh" instance=ExtResource("9_bxw0a")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15, 0.5, -5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15, 0, -5)
 
 [node name="tile-tree-double3" parent="FloorMesh" instance=ExtResource("9_bxw0a")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 15, 0.5, 5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 15, 0, 5)
 
 [node name="tile-tree-quad3" parent="FloorMesh" instance=ExtResource("7_mafoj")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15, 0.5, 5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15, 0, 5)
 
 [node name="tile-tree-double4" parent="FloorMesh" instance=ExtResource("9_bxw0a")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25, 0.5, -5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25, 0, -5)
 
 [node name="tile-tree-quad4" parent="FloorMesh" instance=ExtResource("7_mafoj")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25, 0.5, 5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 25, 0, 5)
 
 [node name="tile-tree-quad5" parent="FloorMesh" instance=ExtResource("7_mafoj")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -25, 0.5, -5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -25, 0, -5)
 
 [node name="tile-tree-double5" parent="FloorMesh" instance=ExtResource("9_bxw0a")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -25, 0.5, 5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -25, 0, 5)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 aabb = AABB(-6, -1, -10, 12, 1, 20)

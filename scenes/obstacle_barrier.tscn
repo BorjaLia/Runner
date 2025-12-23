@@ -20,6 +20,7 @@ shader_parameter/albedo_color = Color(0.88134205, 0.29073507, 0.31676307, 1)
 size = Vector3(2, 1, 0.5)
 
 [node name="ObstacleBarrier" type="StaticBody3D" groups=["obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3298409, 0)
 script = ExtResource("1_ucs30")
 model_scenes = Array[PackedScene]([ExtResource("2_x4gf7"), ExtResource("3_cebhh"), ExtResource("4_2g2y3"), ExtResource("5_pdybl")])
 shared_texture = ExtResource("6_2g2y3")

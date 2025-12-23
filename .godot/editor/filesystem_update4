@@ -1,10 +1,8 @@
-res://shaders/CurvedWorld.gdshader
-res://assets/models/Terrain/tile_straight.tscn
-res://scenes/track_segment.tscn
-res://assets/textures/special_shader.tres
-res://assets/models/Terrain/tile_tree_double.tscn
-res://assets/models/Terrain/tile_tree_quad.tscn
 res://scenes/main_game.tscn
-res://assets/models/Character/characters_sam.tscn
+res://shaders/CurvedWorld.gdshader
+res://scenes/main_menu.tscn
+res://scenes/track_segment.tscn
+res://scenes/obstacle_high.tscn
+res://scenes/obstacle_barrier.tscn
+res://scenes/traffic_barrier_22.tscn
 res://scenes/player.tscn
-res://scripts/playerController.gd
